@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sambhasha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../CSS/landingPage.css">
+ 
+</head>
+<body class="">
+
+ 
+
+  <!-- Header -->
+  <header class=" text-white px-4 sm:px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-30">
+    <div class="flex items-center gap-3">
+      <h1 class="text-2xl font-bold font-serif">Sambhasha</h1>
+    </div>
+    <div class="hidden md:flex gap-3 items-center">
+      <a href="landingPage.html"><img src="../UiMedia/whiteHome.png" alt="Home Icon" class="w-8 h-8 mt-[4px]"></a>
+      <button class="bg-gradient-to-br from-sky-500 to-teal-300 text-black px-4 py-2 rounded-full font-semibold hover:text-white transition" onclick="window.location.href='Login.html'">Login</button>
+    </div>
+    <div class="md:hidden">
+      <button class="bg-gradient-to-br from-sky-500 to-teal-300 text-gray-950 px-4 py-2 rounded-full font-semibold hover:text-white transition" onclick="window.location.href='Login.html'">Login</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="min-h-screen bg-no-repeat bg-center flex items-center justify-end pr-18 px-4 sm:px-8 py-8">
+
+    <div class=" bg-opacity-95 p-6 sm:p-8 md:p-10 rounded-xl w-full max-w-md shadow-2xl">
+      <h2 class="text-2xl font-semibold text-center text-sky-500 mb-6">Create Account</h2>
+      <form action="../php/signup.php" method="POST">
+        <input type="text" placeholder="Full Name" required name="username"
+        class="w-full p-3 mb-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="email" placeholder="Email" required name="email"
+        class="w-full p-3 mb-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="tel" placeholder="Phone Number" required name="mobile"
+        class="w-full p-3 mb-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="password" placeholder="Create Password" required name="password"
+        class="w-full p-3 mb-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="password" placeholder="Confirm Password" required name="cpassword"
+        class="w-full p-3 mb-4 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button type="submit" class="w-full bg-gradient-to-br from-sky-500 to-teal-500 text-gray-950 hover:text-white py-3 rounded-md text-lg hover:bg-blue-700 transition">Create Account</button>
+      </form>
+      <div class="text-center text-sm text-gray-300 mt-5">
+        Already have an account? <a href="login.html" class="text-white hover:underline">Log In</a>
+      </div>
+    </div>
+
+  </main>
+
+
+
+
+</body>
+</html>

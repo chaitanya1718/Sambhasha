@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sambhasha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="../js/courses.js" defer></script>
+  <script src="../js/sidebar.js" defer></script>
+  <link rel="stylesheet" href="../CSS/layout.css">
+
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar"
+    class="fixed top-0 left-0 h-full w-64 bg-gradient-to-br from-gray-950 to-sky-500 shadow-lg z-40
+     transform -translate-x-full transition-transform duration-300">
+    <div class="p-5 border-b font-bold text-xl text-white flex justify-between items-center">
+      📚 Menu
+      <button onclick="toggleSidebar()" class="text-white hover:text-sky-500">&times;</button>
+    </div>
+    <ul class="p-5 space-y-4 text-white">
+      <li class="flex items-center gap-2"><img src="../UiMedia/home.png" class="w-5 h-5">
+        <a href="home.html" class="hover:text-sky-500">Home</a></li>
+
+      <li class="flex items-center gap-2"><img src="../UiMedia/whiteProfile.png" class="w-5 h-5">
+        <a href="../php/dashboard.php" class="hover:text-sky-500">Profile</a></li>
+
+      <li class="flex items-center gap-2"><img src="../UiMedia/enrolled.png" class="w-5 h-5">
+        <a href="../php/wishlist.php" class="hover:text-sky-500">Enrolled Courses</a></li>
+
+      <li class="flex items-center gap-2"><img src="../UiMedia/chatBotImg.png" class="w-5 h-5">
+        <a href="chatbot.html" class="hover:text-sky-500">ChatBot</a></li>
+
+      <li class="flex items-center gap-2"><img src="../UiMedia/feedback.png" class="w-5 h-5">
+        <a href="../php/newfeedback.php" class="hover:text-sky-500">Feedbacks</a></li>
+
+      <li class="flex items-center gap-2"><img src="../UiMedia/writeus.png" class="w-5 h-5">
+        <a href="aboutus.html" class="hover:text-sky-500">About us</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="text-white px-6 py-4 flex justify-between items-center sticky top-0 z-30 w-full">
+    <div class="flex items-center gap-3">
+      <img src="../UiMedia/menuWhite2.png" class="w-6 h-6 cursor-pointer" onclick="toggleSidebar()" title="Menu"/>
+      <h1 class="text-2xl font-bold font-serif">Sambhasha</h1>
+    </div>
+    <div class="hidden md:flex gap-2">
+      <a href="Home.html"><img src="../UiMedia/whiteHome.png" class="w-8 h-8 mt-[4px]" title="Home"></a>
+      <a href="../php/dashboard.php"><img src="../UiMedia/whiteProfile.png" class="w-8 h-8 mt-[4px]" title="Profile"></a>
+    </div>
+  </header>
+
+   <!-- Search Bar -->
+   <div class="my-4 flex justify-center">
+    <input 
+      type="text" 
+      id="searchInput" 
+      onkeyup="searchCourses()" 
+      placeholder="Search for Languages..." 
+      class="w-full max-w-md px-4 py-2 rounded-3xl shadow focus:outline-none focus:ring-2 focus:ring-sky-400 "
+    />
+  </div>
+
+  <!-- Filter Buttons -->
+  <section class="text-center my-6">
+    <h2 class="text-2xl text-white font-semibold mb-4">pick your area of learning</h2>
+    <div class="space-x-4">
+      <button onclick="showSection('indian')" class="bg-gradient-to-l from-sky-500 to-teal-300 hover:bg-sky-600 
+      hover:text-white px-6 py-2 rounded-lg shadow">Indian</button>
+      <button onclick="showSection('foreign')" class="bg-gradient-to-r from-sky-500 to-teal-300  hover:bg-sky-600
+       hover:text-white px-6 py-2 rounded-lg shadow">Foreign</button>
+    </div>
+  </section>
+
+  <!-- Indian Courses -->
+  <main id="indian-section" class="p-6">
+    <h2 class="text-2xl text-white font-semibold mb-4 text-center">Indian Languages</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Add Indian courses here -->
+
+      <!-- Hindi -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg h-80 
+      flex flex-col justify-between " data-course-name="hindi">
+        <img src="../UiMedia/northIndiaCover.jpg" alt="Hindi" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Hindi for Beginners</h3>
+          <p>Start your journey with basic Hindi speaking skills.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=hindi" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl
+           hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="hindi">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+            hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Telugu -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg 
+      h-80 flex flex-col justify-between"  data-course-name="telugu">
+        <img src="../UiMedia/AndhraCover.jpg" alt="Telugu" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Learn Telugu</h3>
+          <p>Start your journey with Andhra/Telangana voices.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=telugu" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="telugu">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+        <!-- Malayalam -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg
+       h-80 flex flex-col justify-between"  data-course-name="malayalam">
+        <img src="../UiMedia/keralaCover.jpg" alt="Malayalam" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Malayalam</h3>
+          <p>Learn the sweetest language of India.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=malayalam" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="malayalam">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tamil -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg 
+      h-80 flex flex-col justify-between"   data-course-name="tamil">
+        <img src="../UiMedia/tamilCover.jpg" alt="Tamil" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Tamil for Beginners</h3>
+          <p>Explore the Dravidian culture.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=tamil" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="tamil">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500
+             hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Kannada -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg 
+      h-80 flex flex-col justify-between"   data-course-name="kannada">
+        <img src="../UiMedia/karnatakaCover.jpg" alt="Kananda" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Learn Kannada</h3>
+          <p>Learn kannada,slay in Bengaluru.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=kannada" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="kannada">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+            hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- bengali -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg 
+      h-80 flex flex-col justify-between"   data-course-name="bengali">
+        <img src="../UiMedia/bengalCulture.png" alt="Bengali" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Bengali</h3>
+          <p>Start your journey with basic Bengali speaking skills.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=bengali" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="bengali">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+            hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+      <!-- Add more Indian language cards if needed -->
+    </div>
+  </main>
+
+  <!-- Foreign Courses -->
+  <main id="foreign-section" class="p-6 hidden">
+    <h2 class="text-2xl text-white font-semibold mb-4 text-center">Foreign Languages</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+
+      <!-- Spanish -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg 
+      h-80 flex flex-col justify-between"   data-course-name="spanish">
+        <img src="../UiMedia/spanishCover.png" alt="Spanish" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">Spanish for Beginners</h3>
+          <p>A foundational course for new Spanish learners.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=spanish" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl 
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="spanish">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500
+             hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- french -->
+      <div class="course-card bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg
+       h-80 flex flex-col justify-between"  data-course-name="french">
+        <img src="../UiMedia/frenchCover.png" alt="french" class="w-full h-32 object-cover rounded mb-2">
+        <div>
+          <h3 class="font-bold text-lg">French</h3>
+          <p>A foundational course for new French learners.</p>
+        </div>
+        <div class="flex justify-around">
+          <a href="../php/playlist.php?course=french-beginner" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl
+          hover:bg-sky-500 hover:text-gray-950">View Course</a>
+          <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+            <input type="hidden" name="course" value="french-beginner">
+            <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500
+             hover:text-gray-950">+ Add to My List</button>
+          </form>
+        </div>
+      </div>
+        <!-- English -->
+        <div class="course-card bg-sky-500 bg-opacity-50 text-white  p-4 shadow rounded-lg
+         h-80 flex flex-col justify-between"  data-course-name="english">
+            <img src="../UiMedia/englishCover.png" alt="Business English" class="w-full h-32 object-cover rounded mb-2">
+            <div>
+            <h3 class="font-bold text-lg">Business English</h3>
+            <p>Enhance your English skills for professional contexts.</p>
+            </div>
+            <div class="flex justify-around">
+            <a href="../php/playlist.php?course=english" class="bg-gray-950 bg-blue-600 text-white px-4 py-1 mt-2 rounded-2xl
+             hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+            <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+                <input type="hidden" name="course" value="english">
+                <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+                hover:text-gray-950   w-full text-center">+ Add to My List</button>
+            </form>
+            </div>
+        </div>
+<!-- German -->
+<div class="course-card bg-sky-500 bg-opacity-50 text-white  p-4 shadow rounded-lg 
+h-80 flex flex-col justify-between"  data-course-name="german">
+    <img src="../UiMedia/germanCover.png" alt="German" class="w-full h-32 object-cover rounded mb-2">
+    <div>
+      <h3 class="font-bold text-lg">German Grammar</h3>
+      <p>Master essential German grammar rules.</p>
+    </div>
+    <div class="flex justify-around">
+      <a href="../php/playlist.php?course=german-a1" class="bg-gray-950  text-white px-4 py-1 mt-2 rounded-2xl 
+       hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+      <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+        <input type="hidden" name="course" value="german-a1">
+        <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+        hover:text-gray-950  w-full text-center">+ Add to My List</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mandarin -->
+  <div class="course-card bg-sky-500 bg-opacity-50 text-white  p-4 shadow rounded-lg
+   h-80 flex flex-col justify-between"  data-course-name="mandarin">
+    <img src="../UiMedia/mandarinCover.png" alt="Mandarin" class="w-full h-32 object-cover rounded mb-2">
+    <div>
+      <h3 class="font-bold text-lg">Mandarin Basics</h3>
+      <p>Learn basic phrases and pronunciation in Mandarin.</p>
+    </div>
+
+    <div class="flex justify-around">
+      <a href="../php/playlist.php?course=mandarin" class="bg-gray-950  text-white px-4 py-1 mt-2 rounded-2xl
+        hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+      <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+        <input type="hidden" name="course" value="mandarin">
+        <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl  hover:bg-sky-500 
+        hover:text-gray-950   w-full text-center">+ Add to My List</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Italian -->
+  <div class="course-card  bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg
+   h-80 flex flex-col justify-between"  data-course-name="italian">
+    <img src="../UiMedia/italy.jpeg" alt="Italian" class="w-full h-32 object-cover rounded mb-2">
+    <div>
+      <h3 class="font-bold text-lg">Italian Culture & Language</h3>
+      <p>Explore Italian through culture and language immersion.</p>
+    </div>
+    <div class="flex justify-around">
+      <a href="../php/playlist.php?course=italian" class="bg-gray-950  text-white px-4 py-1 mt-2 rounded-2xl 
+       hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+      <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+        <input type="hidden" name="course" value="italian">
+        <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl  hover:bg-sky-500 
+        hover:text-gray-950  w-full text-center">+ Add to My List</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Japanese -->
+  <div class="course-card  bg-sky-500 bg-opacity-50 text-white p-4 shadow rounded-lg
+   h-80 flex flex-col justify-between"  data-course-name="japanese">
+    <img src="../UiMedia/japanCover.png" alt="Japanese" class="w-full h-32 object-cover rounded mb-2">
+    <div>
+      <h3 class="font-bold text-lg">Japanese Writing</h3>
+      <p>Practice reading and writing Hiragana, Katakana, and Kanji.</p>
+    </div>
+    <div class="flex justify-around">
+      <a href="../php/playlist.php?course=japanese" class="bg-gray-950  text-white px-4 py-1 mt-2 rounded-2xl 
+       hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+      <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+        <input type="hidden" name="course" value="japanese">
+        <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl hover:bg-sky-500 
+        hover:text-gray-950   w-full text-center">+ Add to My List</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Arabic -->
+  <div class="course-card  bg-sky-500 bg-opacity-50 text-white  p-4 shadow rounded-lg
+   h-80 flex flex-col justify-between"  data-course-name="arabic">
+    <img src="../UiMedia/arabCover.jpg" alt="Arabic" class="w-full h-32 object-cover rounded mb-2">
+    <div>
+      <h3 class="font-bold text-lg">Arabic for Travel</h3>
+      <p>Essential Arabic phrases for travelers and tourists.</p>
+    </div>
+    <div class="flex justify-around">
+
+      <a href="../php/playlist.php?course=arabic" class="bg-gray-950 text-white px-4 py-1 mt-2 rounded-2xl
+        hover:bg-sky-500 hover:text-gray-950  text-center block">View Course</a>
+      <form action="../php/add_to_wishlist.php" method="POST" class="mt-2">
+        <input type="hidden" name="course" value="arabic">
+        <button type="submit" class="bg-gray-950 text-white px-4 py-1 rounded-2xl  hover:bg-sky-500 
+        hover:text-gray-950   w-full text-center">+ Add to My List</button>
+      </form>
+    </div>
+  </div>
+
+      <!-- Repeat your foreign language cards here (French, English, etc.) -->
+      <!-- Paste all foreign cards from original here... -->
+
+    </div>
+  </main>
+
+  
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 bg-opacity-50 text-white text-center py-5 mt-16">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-lg font-bold">Connect with Us</h2>
+          <div class="flex justify-center space-x-4 mt-2">
+            <a href="https://www.facebook.com" target="_blank"><img src="../UiMedia/facebook.png" class="w-6 h-6"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="../UiMedia/twitter.png" class="w-6 h-6"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="../UiMedia/Insta.png" class="w-6 h-6"></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="../UiMedia/linkedin.png" class="w-6 h-6"></a>
+          </div>
+        </div>
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-lg font-bold">Quick Links</h2>
+          <ul class="space-y-1 mt-2">
+            <li><a href="#" class="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-blue-400">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold">Contact Us</h2>
+          <p class="mt-2">Email: <a href="mailto:info@sambhasha.com" class="hover:text-gray-950">info@sambhasha.com</a></p>
+          <p>Phone: <a href="tel:+1234567890" class="hover:text-gray-950">+91 140 256 546</a></p>
+        </div>
+      </div>
+      <div class="border-t border-blue-500 pt-4">
+        <p class="text-sm">&copy; 2025 LearnLanguagesOnline.com | All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
